@@ -20,7 +20,14 @@ public class BasePage {
     }
 
     protected void click(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+        try {
+            element.click();
+        } catch (ElementClickInterceptedException e) {
+            // fallback con JS (clave para DemoQA)
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+        }
     }
 
     protected void type(By locator, String text) {
@@ -31,7 +38,11 @@ public class BasePage {
         driver.get(url);
     }
 
-    protected void scroll(int x, int y) {
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + x + "," + y + ")");
+    protected void scrollToElement(By locator) {
+        WebElement element = find(locator);
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block: 'center'});",
+                element
+        );
     }
 }

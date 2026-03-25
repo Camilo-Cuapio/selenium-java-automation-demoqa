@@ -6,19 +6,13 @@ import org.openqa.selenium.WebDriver;
 
 public class TextBoxPage extends BasePage {
 
-
-    //Item locator
-    By fullNameLocator = By.xpath("//*[@id='userName']");
-    By emailLocator = By.xpath("//*[@id='userEmail']");
-    By currentAddress = By.cssSelector("#currentAddress");
-    By permanentAddress = By.cssSelector("#permanentAddress");
-    By submit = By.cssSelector("#submit");
+    By fullNameLocator = By.id("userName");
+    By emailLocator = By.id("userEmail");
+    By currentAddress = By.id("currentAddress");
+    By permanentAddress = By.id("permanentAddress");
+    By submit = By.id("submit");
 
     By outputName = By.id("name");
-    By outputEmail = By.id("email");
-    By outputCurrentAddress = By.id("currentAddress");
-    By outputPermananetAddress = By.id("permanentAddress");
-
 
     public TextBoxPage(WebDriver driver) {
         super(driver);
@@ -40,8 +34,8 @@ public class TextBoxPage extends BasePage {
     }
 
     public TextBoxPage submitForm() {
-        scroll(0, 300);
-        click(submit);
+        scrollToElement(submit);   // 🔥 clave
+        click(submit);             // 🔥 ahora es safeClick
         return this;
     }
 
