@@ -24,30 +24,28 @@ public class TextBoxPage extends BasePage {
         super(driver);
     }
 
-    public void textBoxForm() {
-        type("Camilo Cuapio", fullNameLocator);
-        type("cuapio.cami@gmail.com", emailLocator);
-        type("Ciudad Nezahualcoyotl", currentAddress);
-        type("Estado de Mexico", permanentAddress);
+    public TextBoxPage open() {
+        visit("https://demoqa.com/text-box");
+        return this;
     }
 
-    public void clickSubmit() {
-        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("window.scrollBy(0,300);");
+    public TextBoxPage enterFullName(String name) {
+        type(fullNameLocator, name);
+        return this;
+    }
+
+    public TextBoxPage enterEmail(String mail) {
+        type(emailLocator, mail);
+        return this;
+    }
+
+    public TextBoxPage submitForm() {
+        scroll(0, 300);
         click(submit);
+        return this;
     }
 
-    public String getOutputName() {
-        return findElement(outputName).getText();
-    }
-
-    public String getOutputEmail() {
-        return findElement(outputEmail).getText();
-    }
-
-    public String getOutputCurrentAddress(){
-        return findElement(outputCurrentAddress).getText();
-    }
-    public String getOutputPermananetAddress(){
-        return findElement(outputPermananetAddress).getText();
+    public String getSubmittedName() {
+        return find(outputName).getText();
     }
 }
