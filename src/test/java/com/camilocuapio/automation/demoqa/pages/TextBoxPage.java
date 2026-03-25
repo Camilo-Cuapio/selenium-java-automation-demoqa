@@ -1,10 +1,10 @@
 package com.camilocuapio.automation.demoqa.pages;
 
-import com.camilocuapio.automation.demoqa.base.Base;
+import com.camilocuapio.automation.demoqa.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class TextBoxPage extends Base {
+public class TextBoxPage extends BasePage {
 
 
     //Item locator

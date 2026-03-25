@@ -10,13 +10,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Base {
+public class BasePage {
 
     protected WebDriver driver;
 
-    public Base(){
+    public BasePage(){
     }
-    public Base(WebDriver driver){
+    public BasePage(WebDriver driver){
         this.driver=driver;
     }
 
