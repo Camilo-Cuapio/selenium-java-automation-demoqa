@@ -10,20 +10,20 @@ import java.util.Map;
 
 public class DriverManager {
 
-    public static WebDriver createDriver(){
+    public static WebDriver createDriver() {
         WebDriverManager.chromedriver().setup();
-
+//Chrome CLI arguments
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--incognito");
         options.addArguments("--disable-notifications");
-
+        //browser preferences, Internal configuration (JSON-like)
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
 
         options.setExperimentalOption("prefs", prefs);
-
+//ChromeDriver with arguments and preferences
         return new ChromeDriver(options);
     }
 }
