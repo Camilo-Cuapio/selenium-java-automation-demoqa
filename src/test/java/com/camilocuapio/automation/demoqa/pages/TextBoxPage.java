@@ -34,8 +34,8 @@ public class TextBoxPage extends BasePage {
     }
 
     public TextBoxPage submitForm() {
-        scrollToElement(submit);   // 🔥 clave
-        click(submit);             // 🔥 ahora es safeClick
+        scrollToElement(submit);   // clave
+        click(submit);             // ahora es safeClick
         return this;
     }
 

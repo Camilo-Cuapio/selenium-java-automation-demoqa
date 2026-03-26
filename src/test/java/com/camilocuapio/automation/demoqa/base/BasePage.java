@@ -10,11 +10,11 @@ public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
+    public BasePage(WebDriver driver){
+        this.driver=driver;
+        this.wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 
+    }
     protected WebElement find(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
@@ -38,6 +38,15 @@ public class BasePage {
         driver.get(url);
     }
 
-
-    //Se agrega nueva rama
+    protected void scrollToElement(By locator) {
+        WebElement element = find(locator);
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block: 'center'});",
+                element
+        );
+    }
 }
+
+
+
+
