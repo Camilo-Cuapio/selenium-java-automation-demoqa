@@ -38,13 +38,6 @@ public class BasePage {
         driver.get(url);
     }
 
-    protected void scrollToElement(By locator) {
-        WebElement element = find(locator);
-        ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].scrollIntoView({block: 'center'});",
-                element
-        );
-    }
 
     //Se agrega nueva rama
 }
