@@ -8,8 +8,8 @@ public class TextBoxPage extends BasePage {
 
     By fullNameLocator = By.id("userName");
     By emailLocator = By.id("userEmail");
-    By currentAddress = By.id("currentAddress");
-    By permanentAddress = By.id("permanentAddress");
+    By currentAddressLocator = By.id("currentAddress");
+    By permanentAddressLocator = By.id("permanentAddress");
     By submit = By.id("submit");
 
     By outputName = By.id("name");
@@ -32,7 +32,14 @@ public class TextBoxPage extends BasePage {
         type(emailLocator, mail);
         return this;
     }
-    public TextBoxPage
+    public TextBoxPage enterCurrentAddress(String currentAddress){
+        type(currentAddressLocator,currentAddress);
+        return this;
+    }
+    public TextBoxPage enterPermanentAddress(String permanentAddress){
+        type(permanentAddressLocator,permanentAddress);
+        return this;
+    }
 
     public TextBoxPage submitForm() {
         scrollToElement(submit);

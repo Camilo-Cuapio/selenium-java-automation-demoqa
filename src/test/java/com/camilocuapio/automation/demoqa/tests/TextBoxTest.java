@@ -27,12 +27,15 @@ public class TextBoxTest extends BaseTest {
 
         String name = "Camilo Cuapio";
         String mail = "Camilo@test.com";
+        String currentAddress="Cuarta Avenida 123";
+        String permanentAddress="Estado de mexico";
 
         TextBoxPage page = new TextBoxPage(driver);
 
         page.open()
                 .enterFullName(name)
                 .enterEmail(mail)
+
                 .submitForm();
 
         String result = page.getSubmittedName();
