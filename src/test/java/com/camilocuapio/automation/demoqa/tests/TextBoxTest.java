@@ -25,13 +25,14 @@ public class TextBoxTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     void shouldSubmitFormSuccessfully() {
 
-        String name = "Juan Perez";
+        String name = "Camilo Cuapio";
+        String mail = "Camilo@test.com";
 
         TextBoxPage page = new TextBoxPage(driver);
 
         page.open()
                 .enterFullName(name)
-                .enterEmail("juan@test.com")
+                .enterEmail(mail)
                 .submitForm();
 
         String result = page.getSubmittedName();

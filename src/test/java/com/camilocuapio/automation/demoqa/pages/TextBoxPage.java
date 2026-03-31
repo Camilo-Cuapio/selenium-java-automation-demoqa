@@ -32,6 +32,7 @@ public class TextBoxPage extends BasePage {
         type(emailLocator, mail);
         return this;
     }
+    public TextBoxPage
 
     public TextBoxPage submitForm() {
         scrollToElement(submit);
