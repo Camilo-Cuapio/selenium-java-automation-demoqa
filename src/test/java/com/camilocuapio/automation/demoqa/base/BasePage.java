@@ -44,6 +44,8 @@ public class BasePage {
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].scrollIntoView({block: 'center'});",
                 element
+
+
         );
     }
 }

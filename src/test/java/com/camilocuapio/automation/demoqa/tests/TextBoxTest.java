@@ -23,10 +23,10 @@ public class TextBoxTest extends BaseTest {
     @Feature("Write in the text boxes")
     @Story("Text box")
     @Severity(SeverityLevel.CRITICAL)
-    void shouldSubmitFormSuccessfully() {
+    void TC_01_shouldSubmitFormSuccessfully() {
 
         String name = "Camilo Cuapio";
-        String mail = "Camilo@test.com";
+        String email = "Camilo@test.com";
         String currentAddress="Cuarta Avenida 123";
         String permanentAddress="Estado de mexico";
 
@@ -34,14 +34,25 @@ public class TextBoxTest extends BaseTest {
 
         page.open()
                 .enterFullName(name)
-                .enterEmail(mail)
-
+                .enterEmail(email)
+                .enterCurrentAddress(currentAddress)
+                .enterPermanentAddress(permanentAddress)
                 .submitForm();
 
-        String result = page.getSubmittedName();
+        String resultName = page.getSubmittedName();
+        String resultEmail=page.getSubmittedEmail();
+        String resultCurrentAddress=page.getSubmittedCurrentAddress();
+        String resultPermanentAddress=page.getSubmittedPermanentAddress();
 
-        System.out.println("Result: " + result);
+        System.out.println("ResultName: " +resultName);
+        System.out.println("ResultEmail: " +resultEmail);
+        System.out.println("ResultCurrent: " +resultCurrentAddress);
+        System.out.println("ResultPermanent: " +resultPermanentAddress);
 
-        assertTrue(result.contains(name));
+
+        assertTrue(resultName.equals(name));
+        assertTrue(resultEmail.equals(email));
+        assertTrue(resultCurrentAddress.equals(currentAddress));
+        assertTrue(resultPermanentAddress.equals(permanentAddress));
     }
 }

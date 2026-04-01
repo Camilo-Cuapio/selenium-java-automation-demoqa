@@ -14,7 +14,7 @@ public class BaseTest {
         driver = DriverManager.createDriver();
     }
 
-    @AfterEach
+   @AfterEach
     void tearDown() {
         if (driver != null) {
             driver.quit();
