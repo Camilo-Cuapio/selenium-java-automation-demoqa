@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @Epic("DemoQA Automation")
 @Feature("Text Box")
 @ExtendWith({
@@ -24,32 +25,32 @@ public class TextBoxTest extends BaseTest {
     @Story("Text box")
     @Severity(SeverityLevel.CRITICAL)
     void TC_01_shouldSubmitFormSuccessfully() {
-
+//Data to be entered
         String name = "Camilo Cuapio";
         String email = "Camilo@test.com";
-        String currentAddress="Cuarta Avenida 123";
-        String permanentAddress="Estado de mexico";
+        String currentAddress = "Cuarta Avenida 123";
+        String permanentAddress = "Estado de mexico";
 
         TextBoxPage page = new TextBoxPage(driver);
-
+//Call methods to enter values into the form
         page.open()
                 .enterFullName(name)
                 .enterEmail(email)
                 .enterCurrentAddress(currentAddress)
                 .enterPermanentAddress(permanentAddress)
                 .submitForm();
-
+//Get output data
         String resultName = page.getSubmittedName();
-        String resultEmail=page.getSubmittedEmail();
-        String resultCurrentAddress=page.getSubmittedCurrentAddress();
-        String resultPermanentAddress=page.getSubmittedPermanentAddress();
+        String resultEmail = page.getSubmittedEmail();
+        String resultCurrentAddress = page.getSubmittedCurrentAddress();
+        String resultPermanentAddress = page.getSubmittedPermanentAddress();
+//Print output data
+        System.out.println("ResultName: " + resultName);
+        System.out.println("ResultEmail: " + resultEmail);
+        System.out.println("ResultCurrent: " + resultCurrentAddress);
+        System.out.println("ResultPermanent: " + resultPermanentAddress);
 
-        System.out.println("ResultName: " +resultName);
-        System.out.println("ResultEmail: " +resultEmail);
-        System.out.println("ResultCurrent: " +resultCurrentAddress);
-        System.out.println("ResultPermanent: " +resultPermanentAddress);
-
-
+//Input and output data validation
         assertTrue(resultName.equals(name));
         assertTrue(resultEmail.equals(email));
         assertTrue(resultCurrentAddress.equals(currentAddress));
